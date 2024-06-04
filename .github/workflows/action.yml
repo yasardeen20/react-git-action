@@ -1,0 +1,17 @@
+name: react-js-action
+on: push
+jobs:
+    test:
+        runs-on: ubunto-latest
+        steps:
+            - name: git checkout 
+              uses: actions/checkout@v4
+            - name: NodeJS Runner
+              uses: actions/setup-node@v4
+              with:
+                node-version: 16
+            - name: install dependencies 
+              run: npm ci
+            - name: test 
+              run: npm test
+
