@@ -1,8 +1,8 @@
 name: react-js-action
-on: push
+on: [push, workflow_dispatch]
 jobs:
     test:
-        runs-on: ubunto-latest
+        runs-on: ubuntu-latest
         steps:
             - name: git checkout 
               uses: actions/checkout@v4
