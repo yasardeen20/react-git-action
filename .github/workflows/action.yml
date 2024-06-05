@@ -12,6 +12,21 @@ jobs:
                 node-version: 18
             - name: install dependencies 
               run: npm ci
+            - name: build project 
+              run: npm run build
+            - name: Deploy
+              run: echo "deploying..."
+    deploy:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: git checkout 
+              uses: actions/checkout@v4
+            - name: NodeJS Runner
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+            - name: install dependencies 
+              run: npm ci
             - name: test 
               run: npm test
-
